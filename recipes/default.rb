@@ -35,8 +35,9 @@ execute "reload-monit" do
 end
 
 # Configration
-instances = node[:opsworks][:layers][:elasticsearch][:instances]
-hosts = instances.map{ |name, attrs| attrs['private_ip'] }
+#instances = node[:opsworks][:layers][:elasticsearch][:instances]
+hosts = []
+#instances.map{ |name, attrs| attrs['private_ip'] }
 
 template "elasticsearch.yml" do
   path   "#{node[:elasticsearch][:path][:conf]}/elasticsearch.yml"
